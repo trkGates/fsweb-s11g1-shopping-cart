@@ -1,20 +1,21 @@
 import { createContext, useState } from "react";
+import { data } from "../data";
 
-export const Proplarim = createContext();
+export const ListeUrunler = createContext();
 
-const ProplarimSayfam = ({ children }) => {
-  const [cart, setCart] = useState([]);
+const Urunler = ({ children }) => {
+  const [products, setProducts] = useState(data);
 
-  const contextState    = {
-    cart: cart,
-    setCart: setCart,
-    };
-    
+  const contextState = {
+    Urunler: products,
+    setUrunler: setProducts,
+  };
+
   return (
-    <Proplarim.Provider value={contextState}>
+    <ListeUrunler.Provider value={contextState}>
       {children}
-    </Proplarim.Provider>
+    </ListeUrunler.Provider>
   );
 };
 
-export default ProplarimSayfam;
+export default Urunler;

@@ -1,7 +1,9 @@
 import styled from "styled-components";
-
+import { useContext } from "react";
+import { Cart } from "../contexts/Cart";
 // Components
 import Product from "./Product";
+import { ListeUrunler } from "../contexts/ProductContext";
 
 const ScProducts = styled.section`
   display: grid;
@@ -17,12 +19,15 @@ const ScProducts = styled.section`
   }
 `;
 
-const Products = (props) => {
+const Products = () => {
+  const { Urunler } = useContext(ListeUrunler);
 
+  const { addItem } = useContext(Cart);
+  console.log(Urunler);
   return (
     <ScProducts>
-      {props.products.map((product) => (
-        <Product key={product.id} product={product} addItem={props.addItem} />
+      {Urunler.map((Urunler) => (
+        <Product key={Urunler.id} product={Urunler} addItem={addItem} />
       ))}
     </ScProducts>
   );

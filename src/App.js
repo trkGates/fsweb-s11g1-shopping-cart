@@ -7,23 +7,11 @@ import Navigation from "./components/Navigation";
 import Products from "./components/Products";
 import ShoppingCart from "./components/ShoppingCart";
 import { useContext } from "react";
-import { Proplarim } from "./contexts/ProductContext";
-
+import { Cart } from "./contexts/Cart";
 function App() {
-  const { cart, setCart } = useContext(Proplarim);
-  const [products, setProducts] = useState(data);
+  const { cart, setCart, addItem } = useContext(Cart);
+  // const [products, setProducts] = useState(data);
   // const [cart, setCart] = useState([]);
-
-
-  
-  const addItem = (item) => {
-    // verilen itemi sepete ekleyin
-    //ürün sepette varsa ekleme yapma
-    if (cart.find((cartItem) => cartItem.id === item.id)) {
-      return;
-    }
-    setCart([...cart, item]);
-  };
 
   return (
     <div className="App">
@@ -32,11 +20,11 @@ function App() {
       {/* Routelar */}
       <main className="content">
         <Route exact path="/">
-          <Products products={products} addItem={addItem} />
+          <Products />
         </Route>
 
         <Route path="/cart">
-          <ShoppingCart/>
+          <ShoppingCart />
         </Route>
       </main>
     </div>

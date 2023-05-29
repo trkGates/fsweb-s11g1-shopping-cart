@@ -3,14 +3,17 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-import ProplarimSayfam, { CounterContext } from "./contexts/ProductContext";
+import ProplarimSayfam from "./contexts/Cart";
 import "./index.css";
+import Urunler from "./contexts/ProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ProplarimSayfam>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Urunler>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Urunler>
   </ProplarimSayfam>
 );

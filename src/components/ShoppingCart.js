@@ -1,13 +1,13 @@
 import React from "react";
 import { ScCartCheckout } from "./scParts";
-import { Proplarim } from "../contexts/ProductContext";
+import { Cart } from "../contexts/Cart";
 import { useContext } from "react";
 
 // Components
 import Item from "./ShoppingCartItem";
 
 const ShoppingCart = () => {
-  const { cart } = useContext(Proplarim);
+  const { cart } = useContext(Cart);
 
   const getCartTotal = () => {
     return cart
