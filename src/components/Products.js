@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 // Components
@@ -19,6 +18,7 @@ const ScProducts = styled.section`
 `;
 
 const Products = (props) => {
+
   return (
     <ScProducts>
       {props.products.map((product) => (
